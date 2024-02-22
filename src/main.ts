@@ -40,6 +40,6 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document, getSwaggerOptionsCustom());
   await app.listen(3000, '0.0.0.0');
 
-  console.log(`Application is running on ${app.getUrl()}/docs`);
+  console.log(`Application is running on ${await app.getUrl()}/docs`);
 }
 bootstrap();

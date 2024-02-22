@@ -1,11 +1,10 @@
-import { Table } from 'sequelize-typescript';
-import { InferModel } from '.';
+import { Model, Table } from 'sequelize-typescript';
 
 @Table({
   tableName: 'Roles',
   freezeTableName: true,
 })
-export default class Roles extends InferModel {
+export default class Roles extends Model {
   id: string;
   login: string;
 }

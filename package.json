@@ -1,5 +1,5 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "nest-ibah-typescript-starter",
   "private": true,
   "version": "1.0.0",
   "description": "Nest TypeScript starter repository",
@@ -22,8 +22,15 @@
     "@nestjs/common": "^10.3.2",
     "@nestjs/core": "^10.3.2",
     "@nestjs/platform-express": "^10.3.2",
+    "@nestjs/platform-fastify": "^10.3.3",
+    "@nestjs/sequelize": "^10.0.1",
+    "@nestjs/swagger": "^7.3.0",
+    "colors": "^1.4.0",
     "reflect-metadata": "^0.2.1",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "sequelize": "^6.37.1",
+    "sequelize-typescript": "^2.1.6",
+    "umzug": "^3.7.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.3.1",

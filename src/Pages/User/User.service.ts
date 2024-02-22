@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import Users from '../../Modules/Database/Models/User.model';
-import Roles from '../../Modules/Database/Models/Role.model';
+import { Roles } from '../../Modules/Databases/Sqlite.Local.Database/models/Role.model';
+import { User } from '../../Modules/Databases/Sqlite.Local.Database/models/User.model';
+import { UserRoles } from '../../Modules/Databases/Sqlite.Local.Database/models/UserRoles.model';
 
 @Injectable()
 export default class UserService {
   constructor(
-    @InjectModel(Users, 'local') private readonly modelUser: Users,
-    @InjectModel(Roles, 'local') private readonly modelRole: Roles,
+    @InjectModel(User, 'sqlite.local') private readonly modelUser: typeof User,
+    @InjectModel(Roles, 'sqlite.local')
+    private readonly modelRoles: typeof Roles,
+    @InjectModel(UserRoles, 'sqlite.local')
+    private readonly modelUserRoles: typeof UserRoles,
   ) {}
 
-  async getAllUsers() {}
-
-  async getUserById() {}
-
-  async getAllRoles() {}
-
-  async getRoleById() {}
+  async getAllUsers() {
+    return await this.modelUser.findAll();
+  }
 }

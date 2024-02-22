@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import Users from '../../Modules/Database/Models/User.model';
-import Roles from '../../Modules/Database/Models/Role.model';
-import UserRole from '../../Modules/Database/Models/UserRole.model';
 import { UserController } from './User.controller';
 import UserService from './User.service';
+import { Roles } from '../../Modules/Databases/Sqlite.Local.Database/models/Role.model';
+import { User } from '../../Modules/Databases/Sqlite.Local.Database/models/User.model';
+import { UserRoles } from '../../Modules/Databases/Sqlite.Local.Database/models/UserRoles.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Users, Roles, UserRole], 'local')],
+  imports: [
+    SequelizeModule.forFeature([User, Roles, UserRoles], 'sqlite.local'),
+  ],
   controllers: [UserController],
   providers: [UserService],
 })

@@ -1,12 +1,10 @@
-import { Controller, OnModuleInit, Post } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import UserService from './User.service';
-
-@Controller()
-export class UserController implements OnModuleInit {
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('User')
+@Controller('User')
+export class UserController {
   constructor(private readonly userService: UserService) {}
-  onModuleInit() {
-    this.onModuleInit();
-  }
 
   @Post()
   async getAllUsers() {

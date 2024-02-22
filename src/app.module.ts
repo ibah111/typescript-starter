@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ModuleOfPages } from './Pages';
+import { ModuleOfPages } from './Pages/Pages.module';
+import { ModuleOfModules } from './Modules';
 
 @Module({
-  providers: [ModuleOfPages, ModuleOfPages],
+  imports: [ModuleOfPages, ModuleOfModules],
 })
 export class AppModule {}
